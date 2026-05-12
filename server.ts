@@ -13,6 +13,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const CONFIG_PATH = path.join(process.cwd(), "data", "email_config.json");
 const DATA_PATH = path.join(process.cwd(), "data", "processed_emails.csv");
+const DEMO_ONLY = process.env.DEMO_ONLY === "true"; // lock entire app to demo mode when deployed
 
 const DEMO_EMAILS = [
   {
@@ -98,6 +99,9 @@ async function startServer() {
   // --- Config endpoints ---
 
   app.get("/api/config", (req, res) => {
+    if (DEMO_ONLY) {
+      return res.json({ configured: true, email: "demo@ottochive.com", provider: "demo", demo: true });
+    }
     const config = readConfig();
     if (!config) return res.json({ configured: false });
     res.json({
@@ -109,6 +113,9 @@ async function startServer() {
   });
 
   app.post("/api/config", (req, res) => {
+    if (DEMO_ONLY) {
+      return res.json({ success: true }); // no-op in demo-only mode
+    }
     const { email, password, imapServer, imapPort, provider, demo } = req.body;
     if (demo) {
       fs.mkdirSync(path.dirname(CONFIG_PATH), { recursive: true });
