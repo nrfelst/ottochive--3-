@@ -25,7 +25,10 @@
       "Bash(curl -s -X POST http://localhost:3000/api/draft-reply -H 'Content-Type: application/json' -d '{\"emailBody\":\"Can you send a one pager?\",\"label\":\"INTERESTED_NOT_READY\",\"senderName\":\"Carlos Mendes\"}')",
       "Bash(curl -s -X POST http://localhost:3000/api/draft-reply -H 'Content-Type: application/json' -d '{\"emailBody\":\"Out of office.\",\"label\":\"OOO\",\"senderName\":\"Marcus Flynn\"}')",
       "Bash(curl -s -X POST http://localhost:3000/api/draft-reply -H 'Content-Type: application/json' -d '{\"emailBody\":\"Remove me please.\",\"label\":\"UNSUBSCRIBE\",\"senderName\":\"newsletter\"}')",
-      "Bash(curl -s -X POST http://localhost:3000/api/draft-reply -H 'Content-Type: application/json' -d '{\"emailBody\":\"Can we get a call?\",\"label\":\"POSITIVE_REPLY\",\"senderName\":\"Sarah Chen\"}')"
+      "Bash(curl -s -X POST http://localhost:3000/api/draft-reply -H 'Content-Type: application/json' -d '{\"emailBody\":\"Can we get a call?\",\"label\":\"POSITIVE_REPLY\",\"senderName\":\"Sarah Chen\"}')",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }
