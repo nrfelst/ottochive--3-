@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(echo \"PID: $!\")",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(curl -s http://localhost:3000/api/config)",
+      "Bash(curl -s -X POST http://localhost:3000/api/config -H 'Content-Type: application/json' -d '{\"email\":\"test@gmail.com\",\"password\":\"testpass\",\"imapServer\":\"imap.gmail.com\",\"imapPort\":993,\"provider\":\"gmail\"}')",
+      "Bash(curl -s -X DELETE http://localhost:3000/api/config)",
+      "Bash(kill 38086)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(curl -s \"http://localhost:3000/src/index.css\")",
+      "Bash(grep -o 'grid-cols-[^;{,\\)]*\\\\|flex[^;{,\\)]*\\\\|gap-[^;{,\\)]*')",
+      "Bash(kill 39350)",
+      "Read(//tmp/**)",
+      "Bash(kill 39641)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(xargs kill *)",
+      "Bash(curl -s -X POST http://localhost:3000/api/config -H \"Content-Type: application/json\" -d '{\"demo\":true}')",
+      "Bash(curl -s -X POST http://localhost:3000/api/draft-reply -H 'Content-Type: application/json' -d '{ *)",
+      "Bash(python3 -m json.tool)",
+      "Bash(node -e ' *)"
+    ]
+  }
+}

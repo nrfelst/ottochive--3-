@@ -1,0 +1,81 @@
+text,label
+"Sounds great, let's connect on Tuesday at 2pm.",POSITIVE_REPLY
+"I'm interested in learning more, can we jump on a call next week?",POSITIVE_REPLY
+"Yes, I'd love to see a demo of the platform. Does Thursday work?",POSITIVE_REPLY
+"This looks like exactly what we need. When are you free to talk?",POSITIVE_REPLY
+"Let's get something on the calendar. Friday afternoon?",POSITIVE_REPLY
+"I've been looking for a solution like this. Are you available Wednesday?",POSITIVE_REPLY
+"Great timing. I'd like to discuss this further with my team, let's chat.",POSITIVE_REPLY
+"Please send over an invite for a brief intro call.",POSITIVE_REPLY
+"I'm free tomorrow morning if you want to give me a quick ring.",POSITIVE_REPLY
+"Count me in. Let's talk through the details soon.",POSITIVE_REPLY
+"This sounds promising. What's your availability for a 15-min chat?",POSITIVE_REPLY
+"I'd be happy to discuss. Does Monday morning work for you?",POSITIVE_REPLY
+"Yes, I have some time this week. Let's sync up.",POSITIVE_REPLY
+"Definitely interested. Let's find a time to talk.",POSITIVE_REPLY
+"I'd love to hear more about your technical roadmap. Let's schedule.",POSITIVE_REPLY
+"Perfect, let's do it. Send me a calendar link.",POSITIVE_REPLY
+"Not the right time for us, maybe check back in 6 months.",SOFT_NO
+"We're currently locked into a contract with another vendor.",SOFT_NO
+"I don't think this is a priority for us this quarter.",SOFT_NO
+"We're not looking at new tools right now, thanks though.",SOFT_NO
+"Let's revisit this next year when our budget opens up.",SOFT_NO
+"We have a similar solution in-house already.",SOFT_NO
+"I'm not the right person to speak with, and we aren't looking anyway.",SOFT_NO
+"Thanks for reaching out but we're going to pass for now.",SOFT_NO
+"Our team is focused elsewhere at the moment.",SOFT_NO
+"We don't have the bandwidth to evaluate new software right now.",SOFT_NO
+"We've decided to put this project on hold indefinitely.",SOFT_NO
+"It's just not a good fit for our current architecture.",SOFT_NO
+"Try me again in Q4, we might be more open then.",SOFT_NO
+"I'll keep your details on file but no thanks for now.",SOFT_NO
+"Not interested at the moment, but appreciate the follow up.",SOFT_NO
+"We're sticking with our current process for the foreseeable future.",SOFT_NO
+"Please remove me from this list immediately.",UNSUBSCRIBE
+"Stop emailing me.",UNSUBSCRIBE
+"Unsubscribe please.",UNSUBSCRIBE
+"Take me off your mailing list.",UNSUBSCRIBE
+"No more emails, thanks.",UNSUBSCRIBE
+"I'm not interested, please don't contact me again.",UNSUBSCRIBE
+"Please stop the outreach.",UNSUBSCRIBE
+"Do not email me again.",UNSUBSCRIBE
+"Remove.",UNSUBSCRIBE
+"I'd like to opt out of further communications.",UNSUBSCRIBE
+"Stop sending these.",UNSUBSCRIBE
+"I am not the person you are looking for, please delete my info.",UNSUBSCRIBE
+"No further emails please.",UNSUBSCRIBE
+"Unsubscribe.",UNSUBSCRIBE
+"Kindly remove my address from your database.",UNSUBSCRIBE
+"I've asked to be removed before, please do so now.",UNSUBSCRIBE
+"I am out of the office until Monday, Oct 30th.",OOO
+"Thanks for your email. I am currently away with no email access.",OOO
+"I will be out of the office starting tomorrow and back on Friday.",OOO
+"Currently OOO. For urgent matters, contact support@company.com.",OOO
+"I am traveling for a conference and will respond when I return.",OOO
+"Out of office until further notice.",OOO
+"I am on vacation and will be back in the office next week.",OOO
+"Thank you for your message. I am out of the office today.",OOO
+"I'm currently away from my desk until Wednesday.",OOO
+"Away for the holidays, back on Jan 5th.",OOO
+"I have limited access to email until my return on Tuesday.",OOO
+"In a workshop all day, expect delayed replies.",OOO
+"Out of the office for the remainder of the week.",OOO
+"I've stepped away from my inbox for a bit, back shortly.",OOO
+"I'm currently on maternity leave and will return in April.",OOO
+"Away today, please reach out to my colleague for status updates.",OOO
+"Can you send more details? I'd like to read the whitepaper.",INTERESTED_NOT_READY
+"I'm not the right contact, but this looks interesting. Try Mark.",INTERESTED_NOT_READY
+"Could you send over a deck or some case studies first?",INTERESTED_NOT_READY
+"This is interesting but we're not ready for a call just yet.",INTERESTED_NOT_READY
+"Send me some more info and I'll pass it to my manager.",INTERESTED_NOT_READY
+"I'd like to see some pricing before we jump on a call.",INTERESTED_NOT_READY
+"Can you provide a brief overview of your API integration?",INTERESTED_NOT_READY
+"This looks cool, but I need to clear it with my CTO first.",INTERESTED_NOT_READY
+"Shoot me an email next month once we've finished our migration.",INTERESTED_NOT_READY
+"I'm open to seeing a one-pager on this if you have it.",INTERESTED_NOT_READY
+"We might be interested later this year, send more documentation.",INTERESTED_NOT_READY
+"What's your typical implementation timeline? Send info.",INTERESTED_NOT_READY
+"I'd like to know more about your enterprise security features.",INTERESTED_NOT_READY
+"Send me an overview of your roadmap for next year.",INTERESTED_NOT_READY
+"I'm curious but busy. Send some material I can review async.",INTERESTED_NOT_READY
+"Do you have a comparison sheet against our current vendor?",INTERESTED_NOT_READY
