@@ -23,6 +23,7 @@ export default function App() {
   const [selectedEmail, setSelectedEmail] = useState<EmailRecord | null>(null);
   const [connectedEmail, setConnectedEmail] = useState<string | null>(null);
   const [isDemo, setIsDemo] = useState(false);
+  const [isDemoOnly, setIsDemoOnly] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -32,6 +33,7 @@ export default function App() {
       } else {
         setConnectedEmail(cfg.email ?? null);
         setIsDemo(cfg.demo ?? false);
+        setIsDemoOnly(cfg.demoOnly ?? false);
         setCurrentScreen('dashboard');
       }
       setLoading(false);
@@ -47,6 +49,7 @@ export default function App() {
     const cfg = await getConfig();
     setConnectedEmail(cfg.email ?? null);
     setIsDemo(cfg.demo ?? false);
+    setIsDemoOnly(cfg.demoOnly ?? false);
     setCurrentScreen('dashboard');
   };
 
@@ -82,7 +85,7 @@ export default function App() {
       case 'digest':
         return <Digest />;
       case 'settings':
-        return <SettingsScreen connectedEmail={connectedEmail} onSignOut={handleSignOut} />;
+        return <SettingsScreen connectedEmail={connectedEmail} onSignOut={handleSignOut} demoOnly={isDemoOnly} />;
       default:
         return <Dashboard onNavigate={setCurrentScreen} />;
     }

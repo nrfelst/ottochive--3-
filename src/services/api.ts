@@ -33,7 +33,7 @@ export async function getHealth() {
   }
 }
 
-export async function getConfig(): Promise<{ configured: boolean; email?: string; provider?: string; demo?: boolean }> {
+export async function getConfig(): Promise<{ configured: boolean; email?: string; provider?: string; demo?: boolean; demoOnly?: boolean }> {
   try {
     const response = await fetch('/api/config');
     return await response.json();

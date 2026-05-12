@@ -92,7 +92,7 @@ function readConfig(): Record<string, string> | null {
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = parseInt(process.env.PORT || "3000", 10);
 
   app.use(express.json());
 
@@ -100,7 +100,7 @@ async function startServer() {
 
   app.get("/api/config", (req, res) => {
     if (DEMO_ONLY) {
-      return res.json({ configured: true, email: "demo@ottochive.com", provider: "demo", demo: true });
+      return res.json({ configured: true, email: "demo@ottochive.com", provider: "demo", demo: true, demoOnly: true });
     }
     const config = readConfig();
     if (!config) return res.json({ configured: false });
@@ -137,6 +137,9 @@ async function startServer() {
   });
 
   app.delete("/api/config", (req, res) => {
+    if (DEMO_ONLY) {
+      return res.json({ success: true }); // can't sign out of demo-only mode
+    }
     if (fs.existsSync(CONFIG_PATH)) fs.unlinkSync(CONFIG_PATH);
     res.json({ success: true });
   });
@@ -169,6 +172,7 @@ except Exception as e:
   // --- Email data endpoints ---
 
   app.get("/api/emails", (req, res) => {
+    if (DEMO_ONLY) return res.json(DEMO_EMAILS);
     const config = readConfig();
     if (config?.demo === "true") return res.json(DEMO_EMAILS);
 

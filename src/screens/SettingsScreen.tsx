@@ -5,9 +5,10 @@ import { getHealth, deleteConfig } from '../services/api.ts';
 interface SettingsScreenProps {
   connectedEmail?: string | null;
   onSignOut?: () => void;
+  demoOnly?: boolean;
 }
 
-export default function SettingsScreen({ connectedEmail, onSignOut }: SettingsScreenProps) {
+export default function SettingsScreen({ connectedEmail, onSignOut, demoOnly }: SettingsScreenProps) {
   const [status, setStatus] = useState<string>('checking...');
   const [isOnline, setIsOnline] = useState<boolean>(false);
   const [showSignOutConfirm, setShowSignOutConfirm] = useState(false);
@@ -71,38 +72,42 @@ export default function SettingsScreen({ connectedEmail, onSignOut }: SettingsSc
               </div>
             </div>
 
-            {!showSignOutConfirm ? (
-              <button
-                onClick={() => setShowSignOutConfirm(true)}
-                className="flex items-center gap-2 text-sm font-bold text-error hover:underline"
-              >
-                <LogOut size={14} />
-                Disconnect account
-              </button>
-            ) : (
-              <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
-                <div className="flex items-start gap-3 mb-4">
-                  <AlertTriangle className="text-red-500 flex-shrink-0 mt-0.5" size={16} />
-                  <p className="text-sm text-red-700 font-medium">
-                    This will remove your saved credentials and return you to the setup screen. Your processed email data will not be deleted.
-                  </p>
-                </div>
-                <div className="flex gap-3">
+            {!demoOnly && (
+              <>
+                {!showSignOutConfirm ? (
                   <button
-                    onClick={() => setShowSignOutConfirm(false)}
-                    className="px-4 py-2 rounded-lg border border-outline-variant text-sm font-bold text-on-surface-variant hover:bg-surface-container-low transition-all"
+                    onClick={() => setShowSignOutConfirm(true)}
+                    className="flex items-center gap-2 text-sm font-bold text-error hover:underline"
                   >
-                    Cancel
+                    <LogOut size={14} />
+                    Disconnect account
                   </button>
-                  <button
-                    onClick={handleSignOut}
-                    disabled={signingOut}
-                    className="px-4 py-2 rounded-lg bg-error text-white text-sm font-bold hover:opacity-90 transition-all disabled:opacity-50"
-                  >
-                    {signingOut ? 'Disconnecting…' : 'Yes, disconnect'}
-                  </button>
-                </div>
-              </div>
+                ) : (
+                  <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
+                    <div className="flex items-start gap-3 mb-4">
+                      <AlertTriangle className="text-red-500 flex-shrink-0 mt-0.5" size={16} />
+                      <p className="text-sm text-red-700 font-medium">
+                        This will remove your saved credentials and return you to the setup screen. Your processed email data will not be deleted.
+                      </p>
+                    </div>
+                    <div className="flex gap-3">
+                      <button
+                        onClick={() => setShowSignOutConfirm(false)}
+                        className="px-4 py-2 rounded-lg border border-outline-variant text-sm font-bold text-on-surface-variant hover:bg-surface-container-low transition-all"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        onClick={handleSignOut}
+                        disabled={signingOut}
+                        className="px-4 py-2 rounded-lg bg-error text-white text-sm font-bold hover:opacity-90 transition-all disabled:opacity-50"
+                      >
+                        {signingOut ? 'Disconnecting…' : 'Yes, disconnect'}
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </>
             )}
           </div>
 
