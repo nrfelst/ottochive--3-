@@ -233,10 +233,70 @@ persuasion attempt. Wish them well and leave the door open if they ever want to 
 2 sentences maximum.`,
   };
 
+  const DEMO_DRAFTS: Record<string, string> = {
+    POSITIVE_REPLY: `Hi {{name}},
+
+This is fantastic to hear — I'm really glad the zero-cloud angle landed well with your team. Privacy-first is exactly what we built Ottochive around, so it's great to connect with someone who gets it immediately.
+
+I'd love to jump on a call this week. Would Thursday at 2pm or Friday at 11am work for you? I'll send a calendar invite as soon as you confirm — the demo takes about 20 minutes and I'll walk you through a live classification run on real inbox data.
+
+Looking forward to it!
+
+Best,
+[Your Name]`,
+
+    SOFT_NO: `Hi {{name}},
+
+Completely understand — timing is everything and there's no point forcing a conversation when the roadmap is already full. I appreciate you being straight with me.
+
+I'll check back in with you in Q3. In the meantime, if anything shifts or a use case comes up where having instant inbox triage would help, feel free to reach out directly.
+
+Best of luck with the current implementation.
+
+Best,
+[Your Name]`,
+
+    INTERESTED_NOT_READY: `Hi {{name}},
+
+Great questions — happy to help you build the case internally. I'll send over a one-pager with accuracy benchmarks and a short case study from a similar team this afternoon.
+
+On the non-English question: the classifier handles it well for European languages out of the box. For Japanese and other scripts we'd want to discuss your specific volume — worth a quick call if that's a meaningful part of your inbox.
+
+No pressure on timing — let me know what would be most useful for your internal conversation and I'll make it easy.
+
+Best,
+[Your Name]`,
+
+    OOO: `Hi {{name}},
+
+No problem at all — I'll follow up when you're back. Hope the time away is going well.
+
+Best,
+[Your Name]`,
+
+    UNSUBSCRIBE: `Hi {{name}},
+
+Absolutely — you're removed. No further emails from me.
+
+Thanks for taking a look and best of luck with everything.
+
+Best,
+[Your Name]`,
+  };
+
   app.post("/api/draft-reply", async (req, res) => {
     const { emailBody, label, senderName } = req.body;
     if (!emailBody || !label) {
       return res.status(400).json({ error: "Missing emailBody or label" });
+    }
+
+    // In demo mode (env var or local config) return a hardcoded draft instantly
+    const isDemoSession = DEMO_ONLY || readConfig()?.demo === "true";
+    if (isDemoSession) {
+      const firstName = (senderName || "there").split(" ")[0];
+      const template = DEMO_DRAFTS[label] ?? DEMO_DRAFTS["INTERESTED_NOT_READY"];
+      const draft = template.replace(/\{\{name\}\}/g, firstName);
+      return res.json({ draft });
     }
 
     const apiKey = process.env.GEMINI_API_KEY;
